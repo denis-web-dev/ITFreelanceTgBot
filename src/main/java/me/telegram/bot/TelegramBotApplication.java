@@ -18,6 +18,7 @@ import com.pengrad.telegrambot.request.SendPhoto;
 import com.pengrad.telegrambot.response.StringResponse;
 import me.telegram.bot.service.OrderService;
 import me.telegram.bot.service.PhoneService;
+import me.telegram.bot.service.ReviewsService;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -32,10 +33,10 @@ public class TelegramBotApplication extends TelegramBot {
 
     private final PhoneService phoneService;
 
-
     private final OrderService orderService;
 
     private final String providerToken;
+    private final ReviewsService reviewsService;
 
     @lombok.Builder
     public TelegramBotApplication(String botToken, String providerToken) {
@@ -44,6 +45,7 @@ public class TelegramBotApplication extends TelegramBot {
         this.executorService = Executors.newFixedThreadPool(8);
         this.phoneService = PhoneService.getInstance();
         this.orderService = OrderService.getInstance();
+        this.reviewsService = ReviewsService.getInstance();
     }
 
     public void run() {
@@ -80,6 +82,7 @@ public class TelegramBotApplication extends TelegramBot {
                 this.execute(response);
                 break;
             }
+
             case "/menu": {
                 SendMessage response = new SendMessage(chatId, "Меню")
                         .replyMarkup(new ReplyKeyboardMarkup(new String[][] {
@@ -109,6 +112,16 @@ public class TelegramBotApplication extends TelegramBot {
                         });
                 break;
             }
+
+
+            case "Поддержка": {
+                SendMessage response = new SendMessage(chatId, "Напишите нам на почту shopbot@mail.ru");
+                this.execute(response);
+                break;
+            }
+
+
+
 
             default: {
                 SendMessage response = new SendMessage(chatId, "Команда не распознана");

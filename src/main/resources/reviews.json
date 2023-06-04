@@ -1,18 +1,18 @@
 {
-  "phones": [
+  "reviews": [
     {
       "id": "unique_id_1",
       "name": "IPhone 12",
       "price": 789.99,
       "description": "128GB Black",
-      "photo": "https://img.5element.by/import/images/ut/goods/good_9cdbbb14-4044-11eb-bb92-0050560120e8/iphone-11-64gb-black-telefon-gsm-apple-mhda3rm-a-1_600.jpg"
+      "reviews": "https://radikal.host/i/XEX68Q"
     },
     {
       "id": "unique_id_2",
       "name": "IPhone 11",
       "price": 670.99,
       "description": "64GB Black",
-      "photo": "https://img.5element.by/import/images/ut/goods/good_9cdbbb14-4044-11eb-bb92-0050560120e8/iphone-11-64gb-black-telefon-gsm-apple-mhda3rm-a-1_600.jpg"
+      "photo": "https://radikal.host/i/XEX68Q"
     },
     {
       "id": "unique_id_3",

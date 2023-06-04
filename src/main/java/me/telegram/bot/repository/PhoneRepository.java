@@ -1,7 +1,5 @@
 package me.telegram.bot.repository;
 
-
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -15,13 +13,10 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class PhoneRepository {
-
     private static final PhoneRepository INSTANCE = new PhoneRepository(
             ObjectMapperConfig.getInstance()
     );
-
     private final ObjectMapper objectMapper;
-
     @SneakyThrows
     public List<Phone> readPhones() {
         List<Phone> phones = new ArrayList<>();
@@ -35,9 +30,7 @@ public class PhoneRepository {
         }
         return phones;
     }
-
     public static PhoneRepository getInstance() {
         return INSTANCE;
     }
-
 }
