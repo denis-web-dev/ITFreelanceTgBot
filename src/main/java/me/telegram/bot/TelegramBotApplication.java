@@ -18,7 +18,7 @@ import com.pengrad.telegrambot.request.SendPhoto;
 import com.pengrad.telegrambot.response.StringResponse;
 import me.telegram.bot.service.OrderService;
 import me.telegram.bot.service.PhoneService;
-import me.telegram.bot.service.ReviewsService;
+
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -36,7 +36,6 @@ public class TelegramBotApplication extends TelegramBot {
     private final OrderService orderService;
 
     private final String providerToken;
-    private final ReviewsService reviewsService;
 
     @lombok.Builder
     public TelegramBotApplication(String botToken, String providerToken) {
@@ -45,7 +44,7 @@ public class TelegramBotApplication extends TelegramBot {
         this.executorService = Executors.newFixedThreadPool(8);
         this.phoneService = PhoneService.getInstance();
         this.orderService = OrderService.getInstance();
-        this.reviewsService = ReviewsService.getInstance();
+
     }
 
     public void run() {

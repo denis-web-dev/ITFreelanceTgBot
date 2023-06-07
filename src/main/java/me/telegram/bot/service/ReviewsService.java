@@ -1,28 +1,19 @@
 package me.telegram.bot.service;
 
+import me.telegram.bot.TelegramBotApplication;
 
+ class Main {
 
-import lombok.RequiredArgsConstructor;
-import me.telegram.bot.model.Reviews;
-import me.telegram.bot.repository.ReviewsRepository;
+    private static final String BOT_TOKEN = "";
 
-import java.util.List;
+    private static final String PROVIDER_TOKEN = "";
 
-@RequiredArgsConstructor
-public class ReviewsService {
-
-    private static final ReviewsService INSTANCE = new ReviewsService(
-            ReviewsRepository.getInstance()
-    );
-
-    private final ReviewsRepository reviewsRepository;
-
-    public List<Reviews> getReviews() {
-        return reviewsRepository.getReviews();
-    }
-
-    public static ReviewsService getInstance() {
-        return INSTANCE;
+    public static void main(String[] args) {
+        TelegramBotApplication application = TelegramBotApplication.builder()
+                .botToken(BOT_TOKEN)
+                .providerToken(PROVIDER_TOKEN)
+                .build();
+        application.run();
     }
 
 }
